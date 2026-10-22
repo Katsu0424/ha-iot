@@ -1,9 +1,9 @@
 # MoekadenRoom（ECHONET Lite のシミュレータ、Sony CSL）を Docker で動かす
-# Mac 向けの実行ファイルは無いので Linux64 版の jar を arm64 の Java 8 で動かす。
+# Mac 向けの実行ファイルは無いので Linux64 版の jar を arm64 の Java 21 で動かす。
 # 描画は Processing 標準の JAVA2D なので、同梱の amd64 ネイティブ（JOGL）は使わない。
 # 画面は Xvfb に出し、noVNC でブラウザから見る（http://localhost:6080/vnc.html）
 # スクショ: docker exec moekaden import -window root /tmp/shot.png（imagemagick）
-FROM eclipse-temurin:8-jre
+FROM eclipse-temurin:21-jre
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends xvfb x11vnc novnc websockify imagemagick unzip curl ca-certificates \
