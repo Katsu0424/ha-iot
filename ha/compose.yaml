@@ -1,0 +1,22 @@
+# Home Assistant Container（Mac の Docker Desktop で検証用）
+# 起動: ha ディレクトリで docker compose up -d
+# config/ は認証情報を含むので Git 管理外（.gitignore）
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:2026.10.2
+    volumes:
+      - ./config:/config
+    environment:
+      - TZ=Asia/Tokyo
+    ports:
+      - "8123:8123"
+    restart: unless-stopped
+
+  # ECHONET Lite のシミュレータ。HA と同じ Docker ネットワークに置き、マルチキャストを届かせる
+  moekaden:
+    container_name: moekaden
+    build: ../moekaden
+    ports:
+      - "127.0.0.1:6080:6080"   # noVNC（画面を見る・操作する）
+    restart: unless-stopped
