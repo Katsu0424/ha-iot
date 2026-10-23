@@ -18,4 +18,6 @@ docker compose up -d --build
 - Home Assistant: http://localhost:8123
 - MoekadenRoom の画面: http://localhost:6080/vnc.html
 
+MoekadenRoom のソースは MIT ライセンスですが、[README](https://github.com/SonyCSL/MoekadenRoom) に「画像はそのまま二次利用しないでください」とあります。このリポジトリには MoekadenRoom のファイルを含めていません（ビルドのときに GitHub から取得します）。
+
 `ha/config/` は Home Assistant の設定で、ログイン情報などが入るので Git 管理外です。
