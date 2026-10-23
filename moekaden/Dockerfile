@@ -2,11 +2,10 @@
 # Mac 向けの実行ファイルは無いので Linux64 版の jar を arm64 の Java 21 で動かす。
 # 描画は Processing 標準の JAVA2D なので、同梱の amd64 ネイティブ（JOGL）は使わない。
 # 画面は Xvfb に出し、noVNC でブラウザから見る（http://localhost:6080/vnc.html）
-# スクショ: docker exec moekaden import -window root /tmp/shot.png（imagemagick）
 FROM eclipse-temurin:21-jre
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends xvfb x11vnc novnc websockify imagemagick unzip curl ca-certificates \
+ && apt-get install -y --no-install-recommends xvfb x11vnc novnc websockify unzip curl ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 
 # master の 2020-12-24 のコミットに固定し、zip のハッシュも確かめる
